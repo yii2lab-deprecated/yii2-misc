@@ -29,4 +29,8 @@ class BaseEnum {
 		return $constants;
 	}
 	
+	public static function isValid($value, $prefix = null) {
+		return in_array($value, static::values($prefix));
+	}
+	
 }
