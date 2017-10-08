@@ -3,6 +3,7 @@
 namespace yii2lab\misc\yii\grid;
 
 use Yii;
+use yii\helpers\ArrayHelper;
 use yii2lab\helpers\yii\Html;
 use yii\helpers\Url;
 
@@ -14,6 +15,8 @@ class ActionColumn extends \yii\grid\ActionColumn
 	public $buttonOptions = ['class' => ['btn btn-xs']];
 	
 	public $template = '{view} {update} {delete}';
+
+	public $idAttribute = 'id';
    
 	/* public function init()
 	{
@@ -27,6 +30,18 @@ class ActionColumn extends \yii\grid\ActionColumn
 		], $this->buttonOptions);
 		$this->header = Html::a(Html::fa('plus', 'success'), $url, $options);
 	} */
+
+	public function createUrl($action, $model, $key, $index)
+	{
+		$key = ArrayHelper::getValue($model, $this->idAttribute);
+		if (is_callable($this->urlCreator)) {
+			return call_user_func($this->urlCreator, $action, $model, $key, $index, $this);
+		} else {
+			$params = is_array($key) ? $key : [$this->idAttribute => (string) $key];
+			$params[0] = $this->controller ? $this->controller . '/' . $action : $action;
+			return Url::toRoute($params);
+		}
+	}
 
 	/**
 	 * Initializes the default button rendering callbacks.
