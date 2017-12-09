@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii2module\article\widgets\PostList;
+use yii2module\lang\widgets\LangSelector;
 
 ?>
 
@@ -59,7 +60,9 @@ use yii2module\article\widgets\PostList;
 
 	<?php if(config('modules.lang')) { ?>
 		<i class="fa fa-language" title="<?= t('lang/main', 'title') ?>"></i>
-		<?= $this->render('@yii2module/lang/module/views/common/selector') ?>
+        <span class="dropup">
+            <?= LangSelector::widget() ?>
+        </span>
 	<?php } ?>
 
 	&nbsp;
