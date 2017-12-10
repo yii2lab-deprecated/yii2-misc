@@ -1,6 +1,7 @@
 <?php
 
 use yii\helpers\Html;
+use yii2lab\helpers\ModuleHelper;
 use yii2module\article\widgets\PostList;
 use yii2module\lang\widgets\LangSelector;
 
@@ -58,7 +59,7 @@ use yii2module\lang\widgets\LangSelector;
 
 <div class="pull-right">
 
-	<?php if(config('modules.lang')) { ?>
+	<?php if(ModuleHelper::has('lang')) { ?>
 		<i class="fa fa-language" title="<?= t('lang/main', 'title') ?>"></i>
         <span class="dropup">
             <?= LangSelector::widget() ?>
