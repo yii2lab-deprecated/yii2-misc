@@ -11,9 +11,11 @@ $identity = Yii::$app->user->identity;
 <!-- Menu Toggle Button -->
 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
 
-	<!-- The user image in the navbar-->
-	<img src="<?= $identity->profile->avatar_url ?>" class="user-image" alt="User Image" />
-	
+    <?php if(!empty($identity->profile)) { ?>
+        <!-- The user image in the navbar-->
+        <img src="<?= $identity->profile->avatar_url ?>" class="user-image" alt="User Image" />
+    <?php } ?>
+    
 	<!-- hidden-xs hides the username on small devices so only the image appears. -->
 	<small class="hidden-xs"><?= $identity->username ?></small>
 </a>
@@ -22,7 +24,9 @@ $identity = Yii::$app->user->identity;
 
 	<!-- The user image in the menu -->
 	<li class="user-header">
-		<img src="<?= $identity->profile->avatar_url ?>" class="img-circle" alt="User Image" />
+        <?php if(!empty($identity->profile)) { ?>
+            <img src="<?= $identity->profile->avatar_url ?>" class="img-circle" alt="User Image" />
+        <?php } ?>
 		<p>
 			<?= $identity->username ?>
 		</p>
