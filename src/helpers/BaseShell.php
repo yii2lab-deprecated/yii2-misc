@@ -116,7 +116,7 @@ abstract class BaseShell {
 		return $this;
 	}
 
-	protected function processCommand(array $args) {
+	protected static function processCommand(array $args) {
 		$cmd = [];
 		$programName = array_shift($args);
 		foreach($args as $arg) {
@@ -133,18 +133,6 @@ abstract class BaseShell {
 			}
 		}
 		return "$programName " . implode(' ', $cmd);
-	}
-
-	/**
-	 * Is path absolute?
-	 *
-	 * @param $path string
-	 *
-	 * @return bool
-	 */
-	public static function isAbsolute($path) {
-		$pattern = '[/\\\\]|[a-zA-Z]:[/\\\\]|[a-z][a-z0-9+.-]*://';
-		return (bool) preg_match("#$pattern#Ai", $path);
 	}
 
 }
