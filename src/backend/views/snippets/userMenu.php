@@ -1,6 +1,7 @@
 <?php
 
 use yii\helpers\Html;
+use yii2lab\helpers\ModuleHelper;
 
 /* @var $this yii\web\View */
 
@@ -37,8 +38,11 @@ $identity = Yii::$app->user->identity;
 	
 	<!-- Menu Footer-->
 	<li class="user-footer">
+
 		<div class="pull-left">
-			<?= Html::a(t('profile/profile', 'title'),env('url.frontend') . 'user/profile',['class'=>"btn btn-default btn-flat"]); ?>
+			<?php if(ModuleHelper::has('profile', FRONTEND)) {
+				echo Html::a(t('profile/profile', 'title'),env('url.frontend') . 'profile/person',['class'=>"btn btn-default btn-flat"]);
+			} ?>
 		</div>
 		<div class="pull-right">
 			<?= Html::a(t('account/auth', 'logout_action'),['/user/auth/logout'],['class'=>"btn btn-default btn-flat", 'data-method'=>'post']); ?>
