@@ -12,3 +12,7 @@
 * [Команда](helper-command.md)
 * [Фильтр](helper-filter.md)
 
+## Enum
+
+* HttpMethodEnum
+* HtmlEnum
