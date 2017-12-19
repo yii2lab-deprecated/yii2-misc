@@ -24,14 +24,14 @@ class FilterHelper {
 	}
 	
 	/**
-	 * @param $filters
-	 * @param $data
+	 * @param array $filters
+	 * @param       $data
 	 *
 	 * @return mixed
 	 * @throws ServerErrorHttpException
 	 * @throws \yii\base\InvalidConfigException
 	 */
-	public static function runAll($filters, $data) {
+	public static function runAll(array $filters, $data) {
 		if(empty($filters)) {
 			return $data;
 		}
