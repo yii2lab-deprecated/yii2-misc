@@ -17,12 +17,12 @@ use yii2module\lang\widgets\LangSelector;
 			<span class="text-muted"> | </span>
 			<?= Html::a(t('main', 'documentation'), param('url.frontend') . 'doc') ?>
 			-->
-			<?php if(config("modules.guide")) { ?>
+			<?php if(ModuleHelper::has('guide')) { ?>
 				<span class="text-muted"> | </span>
 				<?= Html::a(t('guide/main', 'title'), ['/guide']) ?>
 			<?php } ?>
 
-			<?php if(config("modules.gii") && Yii::$app->user->can('backend.*')) { ?>
+			<?php if(ModuleHelper::has('gii') && Yii::$app->user->can('backend.*')) { ?>
 				<span class="text-muted"> | </span>
 				<?= Html::a('Gii', ['/gii']) ?>
 			<?php } ?>
@@ -47,7 +47,7 @@ use yii2module\lang\widgets\LangSelector;
 
 	<?php if(APP == FRONTEND) { ?>
 
-		<?php if(config("modules.article")) { ?>
+		<?php if(ModuleHelper::has('article')) { ?>
 			<p>
 		        <?= PostList::widget() ?>
 			</p>
