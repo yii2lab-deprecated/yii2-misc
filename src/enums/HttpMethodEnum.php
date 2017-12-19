@@ -2,7 +2,7 @@
 
 namespace yii2lab\misc\enums;
 
-class HttpMethod extends BaseEnum {
+class HttpMethodEnum extends BaseEnum {
 	
 	const GET = 'GET';
 	const POST = 'POST';
