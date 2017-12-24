@@ -3,7 +3,9 @@
 namespace yii2lab\misc\helpers;
 
 use Yii;
+use yii\base\InvalidConfigException;
 use yii\web\ServerErrorHttpException;
+use yii2lab\helpers\Helper;
 use yii2lab\misc\interfaces\CommandInterface;
 
 class CommandHelper {
@@ -17,9 +19,6 @@ class CommandHelper {
 	 * @throws \yii\base\InvalidConfigException
 	 */
 	public static function run($config, $class = null) {
-		if(empty($config) && empty($class)) {
-			return null;
-		}
 		$command = self::create($config, $class);
 		return $command->run();
 	}
@@ -51,9 +50,7 @@ class CommandHelper {
 	 * @throws \yii\base\InvalidConfigException
 	 */
 	public static function create($config, $class = null) {
-		if(!empty($class)) {
-			$config['class'] = $class;
-		}
+		$config = Helper::normalizeComponentConfig($config, $class);
 		return self::createCommand($config);
 	}
 	
@@ -62,9 +59,12 @@ class CommandHelper {
 	 *
 	 * @return CommandInterface
 	 * @throws ServerErrorHttpException
-	 * @throws \yii\base\InvalidConfigException
+	 * @throws InvalidConfigException
 	 */
 	private static function createCommand($config) {
+		if(empty($config)) {
+			throw new InvalidConfigException('Empty command config');
+		}
 		$command = Yii::createObject($config);
 		if($command instanceof CommandInterface) {
 			return $command;
