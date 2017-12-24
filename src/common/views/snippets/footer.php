@@ -31,7 +31,7 @@ $items = MenuHelper::gen($menu['leftMenu']);
 <div class="pull-right">
 
 	<?php if(ModuleHelper::has('lang')) { ?>
-		<i class="fa fa-language" title="<?= t('lang/main', 'title') ?>"></i>
+		<i class="fa fa-language" title="<?= Yii::t('lang/main', 'title') ?>"></i>
         <span class="dropup">
             <?= LangSelector::widget() ?>
         </span>

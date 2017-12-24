@@ -36,14 +36,14 @@ $from = '@yii2lab/misc/backend';
 			<?php } else { ?>
 				<li>
 					<a href="/user/auth/login">
-						<?= t('user/auth', 'login_title') ?>
+						<?= Yii::t('user/auth', 'login_title') ?>
 					</a>
 				</li>
 			<?php } ?>
 			
 			<!-- Control Sidebar Toggle Button -->
 			<li>
-				<?= Html::a('<i class="fa fa-external-link"></i>', param('url.frontend'), ['target' => '_blank', 'title' => t('main', 'go_to_frontend')]); ?>
+				<?= Html::a('<i class="fa fa-external-link"></i>', param('url.frontend'), ['target' => '_blank', 'title' => Yii::t('main', 'go_to_frontend')]); ?>
 			</li>
 		</ul>
 	</div>
