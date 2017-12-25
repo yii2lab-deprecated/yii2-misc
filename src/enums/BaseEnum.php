@@ -33,10 +33,13 @@ class BaseEnum {
 		return in_array($value, static::values($prefix));
 	}
 	
-	public static function value($value, $prefix = null) {
+	public static function value($value, $default = null, $prefix = null) {
 		if(self::isValid($value, $prefix)) {
 			return $value;
 		} else {
+			if($default !== null && self::isValid($default, $prefix)) {
+				return $default;
+			}
 			$values = self::values($prefix);
 			return $values[0];
 		}
