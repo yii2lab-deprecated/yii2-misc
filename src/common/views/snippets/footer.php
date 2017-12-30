@@ -20,7 +20,9 @@ $items = MenuHelper::gen($menu['leftMenu']);
 
 		<?php if(ModuleHelper::has('article')) { ?>
 			<p>
-		        <?= PostList::widget() ?>
+		        <?= PostList::widget([
+		                'names' => param('article.links'),
+                ]) ?>
 			</p>
 		<?php } ?>
 
