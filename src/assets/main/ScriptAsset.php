@@ -1,20 +1,17 @@
 <?php
 
-namespace yii2lab\misc\assets;
+namespace yii2lab\misc\assets\main;
 
 use Yii;
 use yii\web\AssetBundle;
 use yii\web\View;
 
-class MainAsset extends AssetBundle
+class ScriptAsset extends AssetBundle
 {
-	public $sourcePath = '@yii2lab/misc/assets/main';
+	public $sourcePath = '@yii2lab/misc/assets/main/dist';
 	public $js = [
 		'js/function.js',
 		'js/scripts.js',
-	];
-	public $css = [
-		'css/main.css',
 	];
 	public $depends = [
 		'yii\web\JqueryAsset',

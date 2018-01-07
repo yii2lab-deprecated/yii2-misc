@@ -1,20 +1,18 @@
 <?php
 
-namespace yii2lab\misc\assets;
+namespace yii2lab\misc\assets\restApi;
 
-use Yii;
 use yii\web\AssetBundle;
-use yii2lab\helpers\yii\FileHelper;
 
 class RestApiAsset extends AssetBundle
 {
-	public $sourcePath = '@yii2lab/misc/assets/restApi';
+	public $sourcePath = '@yii2lab/misc/assets/restApi/dist';
 	public $js = [
 		'js/main.js',
 	];
 	public $depends = [
 		'yii\web\JqueryAsset',
-		'yii2lab\misc\assets\MainAsset',
+		'yii2lab\misc\assets\main\ScriptAsset',
 	];
 	
 }
