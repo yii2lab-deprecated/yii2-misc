@@ -2,25 +2,28 @@
 
 namespace yii2lab\misc\helpers;
 
-use Yii;
-use yii\base\InvalidConfigException;
 use yii\web\ServerErrorHttpException;
 use yii2lab\helpers\Helper;
 use yii2lab\misc\interfaces\CommandInterface;
+use yii2mod\helpers\ArrayHelper;
 
 class CommandHelper {
 	
 	/**
 	 * @param      $config
-	 * @param null $class
 	 *
 	 * @return mixed
 	 * @throws ServerErrorHttpException
 	 * @throws \yii\base\InvalidConfigException
 	 */
-	public static function run($config, $class = null) {
-		$command = self::create($config, $class);
-		return $command->run();
+	public static function run($config) {
+		$object = self::create($config);
+		$result = $object->run();
+		return [
+			'object' => $object,
+			'config' => $config,
+			'result' => $result,
+		];
 	}
 	
 	/**
@@ -35,6 +38,7 @@ class CommandHelper {
 			return [];
 		}
 		$result = [];
+		$configList = ArrayHelper::toArray($configList);
 		foreach($configList as $config) {
 			$result[] = self::run($config);
 		}
@@ -43,34 +47,15 @@ class CommandHelper {
 	
 	/**
 	 * @param      $config
-	 * @param null $class
 	 *
 	 * @return CommandInterface
 	 * @throws ServerErrorHttpException
 	 * @throws \yii\base\InvalidConfigException
 	 */
-	public static function create($config, $class = null) {
-		$config = Helper::normalizeComponentConfig($config, $class);
-		return self::createCommand($config);
+	public static function create($config) {
+		/** @var CommandInterface $object */
+		$object = Helper::createObject($config, [], CommandInterface::class);
+		return $object;
 	}
 	
-	/**
-	 * @param $config
-	 *
-	 * @return CommandInterface
-	 * @throws ServerErrorHttpException
-	 * @throws InvalidConfigException
-	 */
-	private static function createCommand($config) {
-		if(empty($config)) {
-			throw new InvalidConfigException('Empty command config');
-		}
-		$command = Yii::createObject($config);
-		if($command instanceof CommandInterface) {
-			return $command;
-		} else {
-			throw new ServerErrorHttpException('Command not be instance of "CommandInterface"');
-		}
-	}
-
 }
