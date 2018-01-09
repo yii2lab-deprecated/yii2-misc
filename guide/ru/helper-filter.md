@@ -65,3 +65,5 @@ $filters = [
 ];
 $data = FilterHelper::runAll($filters, $data);
 ```
+
+Можно задать параметр `isEnabled` чтобы отключить выполнение фильтра.
