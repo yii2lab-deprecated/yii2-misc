@@ -18,6 +18,10 @@ class FilterHelper {
 	 * @throws \yii\base\InvalidConfigException
 	 */
 	public static function run($config, $data) {
+		$config = Helper::isEnabledComponent($config);
+		if(!$config) {
+			return null;
+		}
 		$filterInstance = self::create($config);
 		$data = $filterInstance->run($data);
 		return $data;
@@ -37,7 +41,10 @@ class FilterHelper {
 		}
 		$filters = ArrayHelper::toArray($filters);
 		foreach($filters as $config) {
-			$data = self::run($config, $data);
+			$config = Helper::isEnabledComponent($config);
+			if($config) {
+				$data = self::run($config, $data);
+			}
 		}
 		return $data;
 	}

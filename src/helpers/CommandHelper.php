@@ -17,6 +17,10 @@ class CommandHelper {
 	 * @throws \yii\base\InvalidConfigException
 	 */
 	public static function run($config) {
+		$config = Helper::isEnabledComponent($config);
+		if(!$config) {
+			return null;
+		}
 		$object = self::create($config);
 		$result = $object->run();
 		return [
@@ -40,7 +44,10 @@ class CommandHelper {
 		$result = [];
 		$configList = ArrayHelper::toArray($configList);
 		foreach($configList as $config) {
-			$result[] = self::run($config);
+			$config = Helper::isEnabledComponent($config);
+			if($config) {
+				$result[] = self::run($config);
+			}
 		}
 		return $result;
 	}
