@@ -26,8 +26,7 @@ class ScriptAsset extends AssetBundle
 	private function generateConfigToJs() {
 		$env = env(null);
 		$config['env'] = [
-			'YII_DEBUG' => $env['YII_DEBUG'],
-			'YII_ENV' => $env['YII_ENV'],
+			'mode' => $env['mode'],
 			'url' => $env['url'],
 		];
 		$code = 'app = ' . json_encode($config) . ';';
