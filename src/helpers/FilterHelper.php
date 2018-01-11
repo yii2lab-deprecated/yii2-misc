@@ -2,6 +2,7 @@
 
 namespace yii2lab\misc\helpers;
 
+use yii\base\InvalidConfigException;
 use yii\helpers\ArrayHelper;
 use yii\web\ServerErrorHttpException;
 use yii2lab\helpers\Helper;
@@ -15,7 +16,7 @@ class FilterHelper {
 	 *
 	 * @return mixed
 	 * @throws ServerErrorHttpException
-	 * @throws \yii\base\InvalidConfigException
+	 * @throws InvalidConfigException
 	 */
 	public static function run($config, $data) {
 		$config = Helper::isEnabledComponent($config);
@@ -33,7 +34,7 @@ class FilterHelper {
 	 *
 	 * @return mixed
 	 * @throws ServerErrorHttpException
-	 * @throws \yii\base\InvalidConfigException
+	 * @throws InvalidConfigException
 	 */
 	public static function runAll(array $filters, $data) {
 		if(empty($filters)) {
@@ -54,7 +55,7 @@ class FilterHelper {
 	 *
 	 * @return FilterInterface
 	 * @throws ServerErrorHttpException
-	 * @throws \yii\base\InvalidConfigException
+	 * @throws InvalidConfigException
 	 */
 	public static function create($config) {
 		/** @var FilterInterface $object */
