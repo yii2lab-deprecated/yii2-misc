@@ -7,11 +7,6 @@
 * [Конфигурация](config.md)
 * [Руководство](guide.md)
 
-## Хэлперы
-
-* [Команда](helper-command.md)
-* [Фильтр](helper-filter.md)
-
 ## Enum
 
 * HttpMethodEnum
