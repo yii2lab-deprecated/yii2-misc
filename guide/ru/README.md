@@ -9,5 +9,6 @@
 
 ## Enum
 
+* [Основы](enum-base.md)
 * HttpMethodEnum
 * HtmlEnum
