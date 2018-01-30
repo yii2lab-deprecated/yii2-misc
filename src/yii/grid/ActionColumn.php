@@ -17,20 +17,7 @@ class ActionColumn extends \yii\grid\ActionColumn
 	public $template = '{view} {update} {delete}';
 
 	public $idAttribute = 'id';
-   
-	/* public function init()
-	{
-		parent::init();
-		$this->initDefaultButtons();
-		$url = '/todo/task/create';
-		$options = array_merge_recursive([
-			'title' => Yii::t('main', 'create'),
-			'aria-label' => Yii::t('main', 'create'),
-			'data-pjax' => '0',
-		], $this->buttonOptions);
-		$this->header = Html::a(Html::fa('plus', 'success'), $url, $options);
-	} */
-
+ 
 	public function createUrl($action, $model, $key, $index)
 	{
 		$key = ArrayHelper::getValue($model, $this->idAttribute);
