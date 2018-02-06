@@ -1,9 +1,0 @@
-
-/* fix right content in menu item */
-
-.sidebar-menu li > a > .pull-right {
-	margin-top: -7px;
-	position: absolute;
-	right: 10px;
-	top: 50%;
-}
