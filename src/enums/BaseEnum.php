@@ -32,6 +32,15 @@ class BaseEnum {
 	public static function isValid($value, $prefix = null) {
 		return in_array($value, static::values($prefix));
 	}
+
+    public static function isValidSet($values, $prefix = null) {
+	    foreach ($values as $value) {
+	        if(!self::isValid($value, $prefix)) {
+	            return false;
+            }
+        }
+        return true;
+    }
 	
 	public static function value($value, $default = null, $prefix = null) {
 		if(self::isValid($value, $prefix)) {
