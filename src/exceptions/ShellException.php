@@ -9,7 +9,7 @@ use Exception;
  *
  * @package yii2lab\misc\exceptions
  *
- * @deprecated use \yii2lab\extension\shell\base\exception\ShellException
+ * @deprecated use \yii2lab\extension\shell\exceptions\ShellException
  */
 class ShellException extends Exception {
 }
