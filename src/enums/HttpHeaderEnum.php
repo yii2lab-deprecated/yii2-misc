@@ -9,6 +9,7 @@ class HttpHeaderEnum extends BaseEnum {
 	const PAGE_COUNT = 'X-Pagination-Page-Count';
 	const CURRENT_PAGE = 'X-Pagination-Current-Page';
 	const PER_PAGE = 'X-Pagination-Per-Page';
+	const TIME_ZONE = 'Time-Zone';
 	const CONTENT_TYPE = 'Content-Type';
 	const AUTHORIZATION = 'Authorization';
 	const ACCESS_TOKEN = 'access-token';
