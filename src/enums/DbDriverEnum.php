@@ -6,5 +6,6 @@ class DbDriverEnum extends BaseEnum {
 	
 	const MYSQL = 'mysql';
 	const PGSQL = 'pgsql';
+	const SQLITE = 'sqlite';
 
 }
