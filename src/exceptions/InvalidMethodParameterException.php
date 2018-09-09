@@ -4,5 +4,8 @@ namespace yii2lab\misc\exceptions;
 
 use yii\base\Exception;
 
-class InvalidMethodParameterException extends Exception {
+/**
+ * @deprecated
+ */
+class InvalidMethodParameterException extends \yii2lab\extension\common\exceptions\InvalidMethodParameterException {
 }

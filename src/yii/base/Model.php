@@ -6,6 +6,12 @@ use Yii;
 use yii\base\Model as YiiModel;
 use yii\db\BaseActiveRecord;
 
+/**
+ * Class Model
+ * @package yii2lab\misc\yii\base
+ * 
+ * @deprecated use \yii2lab\domain\base\Model
+ */
 class Model extends YiiModel
 {
 

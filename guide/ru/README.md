@@ -7,8 +7,4 @@
 * [Конфигурация](config.md)
 * [Руководство](guide.md)
 
-## Enum
 
-* [Основы](enum-base.md)
-* HttpMethodEnum
-* HtmlEnum

@@ -2,10 +2,9 @@
 
 namespace yii2lab\misc\enums;
 
-class DbDriverEnum extends BaseEnum {
-	
-	const MYSQL = 'mysql';
-	const PGSQL = 'pgsql';
-	const SQLITE = 'sqlite';
+/**
+ * @deprecated
+ */
+class DbDriverEnum extends \yii2lab\db\domain\enums\DbDriverEnum {
 
 }
